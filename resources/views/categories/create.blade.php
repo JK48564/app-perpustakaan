@@ -1,21 +1,14 @@
-{{-- File: resources/views/categories/create.blade.php --}}
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Tambah Kategori</title>
-    <style>
-        body { font-family: sans-serif; margin: 40px; max-width: 500px; }
-        label { display: block; margin-top: 12px; font-weight: bold; }
-        input, textarea { width: 100%; padding: 6px; margin-top: 4px; box-sizing: border-box; }
-        .error { color: #b91c1c; font-size: 14px; margin-top: 4px; }
-        .btn { margin-top: 20px; padding: 8px 16px; background: #2563eb; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-    </style>
-</head>
-<body>
-    <h1>Tambah Kategori</h1>
-    <p><a href="{{ route('categories.index') }}">&larr; Kembali ke daftar kategori</a></p>
+@extends('layouts.app')
 
+@section('title', 'Input Kategori')
+
+@section('content')
+    <p>
+        <a href="{{ route('categories.index') }}">&larr; Kembali ke daftar kategori</a>
+    </p>
+
+     <h1>Tambah Kategori</h1>
+    
     <form action="{{ route('categories.store') }}" method="POST">
         @csrf
 
@@ -26,12 +19,12 @@
         @enderror
 
         <label for="deskripsi">Deskripsi (opsional)</label>
-        <textarea name="deskripsi" id="deskripsi" rows="4">{{ old('deskripsi') }}</textarea>
+        <textarea name="deskripsi" id="deskripsi" rows="6">{{ old('deskripsi') }}</textarea>
         @error('deskripsi')
             <div class="error">{{ $message }}</div>
         @enderror
 
         <button type="submit" class="btn">Simpan</button>
     </form>
-</body>
-</html>
+@endsection
+   
