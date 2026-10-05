@@ -1,4 +1,4 @@
-@extends('layouts.app')
+`@extends('layouts.app')
 
 @section('title', 'Daftar Anggota')
 
@@ -56,4 +56,4 @@
 
     {{ $members->appends(request()->query())->links() }}
 
-@endsection
+@endsection`
