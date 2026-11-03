@@ -1,0 +1,377 @@
+{
+  "info": {
+    "name": "App Perpustakaan - Pertemuan 9 API",
+    "description": "Koleksi Postman untuk pengujian REST API Pertemuan 9 (books, members, loans, stats)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Books",
+      "item": [
+        {
+          "name": "GET /api/books (Semua Buku)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/books",
+              "host": ["{{base_url}}"],
+              "path": ["books"]
+            }
+          }
+        },
+        {
+          "name": "GET /api/books (Filter Judul)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/books?judul=laskar",
+              "host": ["{{base_url}}"],
+              "path": ["books"],
+              "query": [
+                {
+                  "key": "judul",
+                  "value": "laskar"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET /api/books (Filter Category)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/books?category_id=1",
+              "host": ["{{base_url}}"],
+              "path": ["books"],
+              "query": [
+                {
+                  "key": "category_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET /api/books/:id (Detail Buku)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/books/1",
+              "host": ["{{base_url}}"],
+              "path": ["books", "1"]
+            }
+          }
+        },
+        {
+          "name": "GET /api/books/999 (Not Found 404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/books/999",
+              "host": ["{{base_url}}"],
+              "path": ["books", "999"]
+            }
+          }
+        },
+        {
+          "name": "POST /api/books (Tambah Buku - 201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Bumi Manusia\",\n  \"penulis\": \"Pramoedya Ananta Toer\",\n  \"penerbit\": \"Hasta Mitra\",\n  \"tahun_terbit\": 1980,\n  \"isbn\": \"978-979-973-12-0\",\n  \"stok\": 5,\n  \"category_id\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/books",
+              "host": ["{{base_url}}"],
+              "path": ["books"]
+            }
+          }
+        },
+        {
+          "name": "POST /api/books (Validasi Gagal - 422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/books",
+              "host": ["{{base_url}}"],
+              "path": ["books"]
+            }
+          }
+        },
+        {
+          "name": "PUT /api/books/:id (Update Buku - 200)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Clean Code (Edisi Revisi)\",\n  \"penulis\": \"Robert C. Martin\",\n  \"penerbit\": \"Prentice Hall\",\n  \"tahun_terbit\": 2008,\n  \"isbn\": \"978-0132350884\",\n  \"stok\": 7,\n  \"category_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/books/1",
+              "host": ["{{base_url}}"],
+              "path": ["books", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE /api/books/:id (Hapus Buku - 200)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/books/3",
+              "host": ["{{base_url}}"],
+              "path": ["books", "3"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Members",
+      "item": [
+        {
+          "name": "GET /api/members (Semua Anggota)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/members",
+              "host": ["{{base_url}}"],
+              "path": ["members"]
+            }
+          }
+        },
+        {
+          "name": "GET /api/members/:id (Detail Anggota)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/members/1",
+              "host": ["{{base_url}}"],
+              "path": ["members", "1"]
+            }
+          }
+        },
+        {
+          "name": "GET /api/members/999 (Not Found 404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/members/999",
+              "host": ["{{base_url}}"],
+              "path": ["members", "999"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Loans",
+      "item": [
+        {
+          "name": "GET /api/loans (Semua Peminjaman)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/loans",
+              "host": ["{{base_url}}"],
+              "path": ["loans"]
+            }
+          }
+        },
+        {
+          "name": "POST /api/loans (Tambah Peminjaman - 201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"member_id\": 2,\n  \"user_id\": 2,\n  \"tanggal_pinjam\": \"2026-11-04\",\n  \"tanggal_kembali\": \"2026-11-11\",\n  \"book_ids\": [1, 2]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/loans",
+              "host": ["{{base_url}}"],
+              "path": ["loans"]
+            }
+          }
+        },
+        {
+          "name": "POST /api/loans (Validasi Gagal - 422)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/loans",
+              "host": ["{{base_url}}"],
+              "path": ["loans"]
+            }
+          }
+        },
+        {
+          "name": "PUT /api/loans/:id/kembalikan (Kembalikan Buku - 200)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/loans/1/kembalikan",
+              "host": ["{{base_url}}"],
+              "path": ["loans", "1", "kembalikan"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Stats",
+      "item": [
+        {
+          "name": "GET /api/stats (Ringkasan Statistik)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/stats",
+              "host": ["{{base_url}}"],
+              "path": ["stats"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

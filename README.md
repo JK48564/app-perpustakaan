@@ -25,5 +25,9 @@ php artisan serve
 - Buka browser, kemudian akses:
 http://127.0.0.1:8000
 
+## Dokumentasi REST API (Pertemuan 9)
+Dokumentasi lengkap seluruh 11 endpoint REST API beserta contoh request dan response JSON dapat dilihat pada file:
+👉 [Dokumentasi REST API (API.md)](./API.md)
+
 
 Menurut saya perbedaan dari tiap aspek dalam MVC arsitektur adalah penggunaannya, Model bertugas mengelola data dan berinteraksi langsung dengan database, View digunakan sebagai menampilkan antarmuka atau halaman yang akan dilihat oleh pengguna, dan Controller menjadi penghubung yang menerima request pengguna, memproses data melalui Model, lalu mengirimkan hasil tersebut ke View agar dapat ditampilkan
