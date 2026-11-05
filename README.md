@@ -1,6 +1,6 @@
 # Sistem Perpustakaan Digital Kampus (`app-perpustakaan`)
 
-Aplikasi web manajemen perpustakaan kampus berbasis **Laravel 12**, dibangun secara bertahap dari Pertemuan 1 hingga Pertemuan 10 dengan menerapkan arsitektur MVC, Blade templating, Eloquent ORM & Relationships, autentikasi session-based, role-based middleware, REST API terstruktur, hingga konsumsi API internal melalui Laravel HTTP Client.
+Aplikasi web manajemen perpustakaan kampus berbasis **Laravel 12**, dibangun secara bertahap dari Pertemuan 1 hingga Pertemuan 10 dengan menerapkan arsitektur MVC, Blade templating, Eloquent ORM & Relationships, autentikasi session-based, role-based middleware, REST API terstruktur, hingga konsumsi API internal melalui Laravel HTTP Client.git merge origin/main
 
 ---
 
@@ -124,11 +124,11 @@ Setelah database di-seed, gunakan akun berikut untuk masuk ke aplikasi (`http://
 ## Dokumentasi & Pengujian
 
 - **Dokumentasi REST API**: Daftar lengkap 11 endpoint beserta contoh response sungguhan dan status code dapat dilihat pada file:
-  👉 [Dokumentasi REST API (API.md)](./API.md)
+   [Dokumentasi REST API (API.md)](./API.md)
 - **Postman Collection Siap Pakai**: Seluruh endpoint dan skenario uji telah diekspor ke file:
-  👉 [`postman_collection.json`](./postman_collection.json) *(Bisa langsung di-import ke aplikasi Postman)*
+   [`postman_collection.json`](./postman_collection.json) *(Bisa langsung di-import ke aplikasi Postman)*
 - **Skenario Demo Live UAS**: Urutan langkah demo live dari login hingga pengujian API beserta rangkuman tanya jawab konseptual:
-  👉 [Panduan Demo Live UAS (DEMO.md)](./DEMO.md)
+   [Panduan Demo Live UAS (DEMO.md)](./DEMO.md)
 
 ---
 
